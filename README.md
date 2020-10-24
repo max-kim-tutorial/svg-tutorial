@@ -5,6 +5,7 @@ Scalable Vector Graphic
 ## 1. 무엇인가
 
 - 확장 가능한 벡터 그래픽
+- **w3c의 벡터 이미지 표준**
 - XML 기반의 2차원 그래픽(SVG코드 자체가 XML 기반 - 태그)
 - 텍스트 기반의 이미지 포맷
 - DOM의 일부로서 각 개체별로 HTML 엘리먼트가 추가됨
@@ -118,7 +119,51 @@ Scalable Vector Graphic
 ```
 
 - SVG elem들을 그룹화할때 사용하는 컨테이너다.
-- 자식 elem들에 대해 속성을 한번에 지정해줄 수 있다.
+- 자식 elem들에 대해 속성을 한 번에 지정해줄 수 있다.
 
 ## 4. property
 
+- 기본 스타일은 외곽선이 없고 바탕이 검은색이다.
+- 속성들은 직접 문서 요소의 인라인 속성이나, CSS 스타일 규칙 둘 중에 한 가지 방법으로 적용할 수 있다(희한하네 HTML 프로퍼티이면서 스타일 요소처럼 적용 가능함)
+- 근데 CSS로 적용하면 얘네가 진짜 CSS 요소가 아니기 때문에 혼란스러울 수 있다. 
+
+### 주요 property
+
+기본적인 프로퍼티들. 다른 것들 [여기](https://developer.mozilla.org/en-US/docs/Web/SVG/ATTRIBUTE) 참조
+
+```html
+<circle cx="25" cy="25" r="22" class="pumkin" fill="yellow" stroke="orange" stroke-width="5"/>
+
+<!--요렇게도 가능 -->
+<style>
+  .pumpkin {
+    fill:yellow;
+    stroke:orange;
+    stroke-width:5;
+  }
+</style>
+```
+
+- fill : 바탕색 값(background-color), rgb프로퍼티 사용해서 opacity도 같이 제어할 수 있다.
+- stroke : 선의 색상 값
+- stroke-width : 선의 두께
+- opacity : 불투명도 값
+- font-size : text elem일때, 글씨크기
+- font-family : text elem일때, 글꼴
+- shape-rendering : 렌더러한테 도형 렌더링할때 뭐 우선시할지 알려줌(optimizedSpeed, crispEdges, geometricPrecision)
+- transform : 변환을 줌(rotate, translate, shewX, scale)
+
+## 5. SMIL
+
+- Synchronized Multimedia Integration Language
+- 복잡한 애니메이션 적용에 필요
+- 기본적으로는 일단 css로 먹이는게 나을거같음
+
+## 이외 SVG로 가능한 것들
+
+필요할때 찾아보자
+
+- 패턴으로 반복
+- 클리핑 마스킹
+- 그라데이션
+- svg 안에 image태그 사용해서 대충 svg인것처럼 활용 가능
